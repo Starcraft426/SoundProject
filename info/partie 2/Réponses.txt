@@ -1,0 +1,80 @@
+Réponses:
+
+Question 1:
+A*sin(f*2*pi*i/fech)
+        
+Question 2:
+En executant hexdump -C court.wav, on obtient le resultat suivant:
+
+00000000  52 49 46 46 2a 00 00 00  57 41 56 45 66 6d 74 20  |RIFF*...WAVEfmt |
+00000010  10 00 00 00 01 00 01 00  44 ac 00 00 88 58 01 00  |........D....X..|
+00000020  02 00 10 00 64 61 74 61  06 00 00 00 1b 3c 2f 03  |....data.....</.|
+00000030  3f e7                                             |?.|
+
+On voit alors qu'on a bien "RIFF"
+"2a 00 00 00" = 42 qui est bien la longeur des octes restants
+"WAVEfmt",
+"10 00 00 00" qui représente 16 sur 4 octes
+"01 00 01 00 " qui représente 2 fois 1 sur 2 octes,
+"44 ac 00 00" = 44100 qui est bien fech
+"88 58 01 00" = 88200 soit 2 * fech
+"02 00" = 2, car 16/8 = 2 et deux octès par note,
+"10 00" = 16, qui est bien la taille d'une notes
+et enfin "data" et la taille qui est bien de 6.
+Le reste sont les valeurs des notes.
+
+La commande correspond donc bien à sa spécification.
+
+Question 3:
+un fichier de ces 5 valeurs serait écrit:
+
+52 49 46 46 2e 00 00 00  57 41 56 45 66 6d 74 20
+10 00 00 00 01 00 01 00  44 ac 00 00 88 58 01 00
+02 00 10 00 64 61 74 61  0a 00 00 00 d2 03 5e 06
+ff ff a2 f9 ff 7f
+
+Question 9-11:
+J'ai légèrement modifié les fonctions white, sine, square, triangle et sawtooth pour qu'elles ne prennent pas la fréquence d'échantillonage en paramètre
+car il aurait été très compliqué de gérer si elles étaient différentes lors de l'enregistrement.
+
+Question 19:
+J'ai légèrement modifié la structure de track et sound pour stocker plus facilement la durée.
+
+Fonctionalités additionnelles:
+On peut utiliser le stéréo eb donnant plus d'un fichier en entrée du programme et en ajoutant en dernier le fichier d'arrivée.
+Le wav peut donc prendre 2 pistes ou plus si on le souhaite.
+Dans le programme, j'ai changé save_sound pour prendre en entrée un track et non un sound pour stocker les différentes pistes à jouer en parrallèle.
+
+Ma seconde fonctionalité additionelle qui est la principale est une interface utilisateur.
+Cette interface est entièrement accessible depuis la console.
+Elle permet de tester toutes les fonctions du programme sans avoir besoin de modifier du code dans le main.
+Il y est possible d'utiliser toutes les fonctions utiles.
+On peut ainsi créer des sons, les stocker dans une variable, le trasformer en track, en mix, l'enregistrer en fichier wav, récupérer le contenus de fichier de mix
+tout cela depuis la console.
+La gestion des erreur est totale, si une erreur est faite, elle est signalée clairement.
+Toutes les fonctions sont documentées avec la fonction help pour plus d'explications.
+Dans cette interface, j'ai également implémenté un opérateur >> qui permet de faire facilement le lien entre les différents types de variables pour simplifier
+certaines tâches.
+Par exemple, il y a 2 manières de mettre un son sinusoïdal dans un fichier:
+
+sine 440 1 32000 >> sound
+add_sound sound
+save_sound sound sinus.wav
+
+ou
+
+sine 440 1 32000 >> track >> sinus.wav
+
+La seconde est une version plus compacte permise par l'ajout de cet opérateur utilisable plusieurs fois pas ligne.
+Il est également possible d'ajouter directement le contenu d'un fichier mix dans un fichier wav:
+
+fichiermix.txt >> fichierwav.wav
+
+Le programme est donc utilisable de trois manières différentes:
+- le mode classique en donant le ficher de départ et le fichier d'arrivée
+- le mode de test en ajoutant l'argument --testmode
+- les sets de tests avec l'argument --debug qui seul fait des tests sur les différentes parties du programme
+                    et avec l'argument --testmode, qui va tester toutes les erreurs possibles lors de l'entrée d'une fonction
+
+Il y a également une confirmation d'écriture de fichier si le fichier existe déjà
+cette confirmation peut être désactivée avec l'argument --nowarn

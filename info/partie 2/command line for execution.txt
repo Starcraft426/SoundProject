@@ -1,0 +1,9 @@
+Commandes pour gcc, valgrind pour ne pas avoir à les faire vous même:
+
+Première partie:
+gcc main.c Projet\ son/melody.c Projet\ son/mix.c Projet\ son/sound.c Projet\ son/track.c Projet\ son/wav.c Projet\ son/waveform.c -Wall -Wextra -g -o DM_son_FALAUX_BACHELOT_Erwan_1
+valgrind --leak-check=full --show-leak-kinds=all ./DM_son_FALAUX_BACHELOT_Erwan_1
+
+Deuxième partie:
+gcc main.c Projet\ son/melody.c Projet\ son/mix.c Projet\ son/sound.c Projet\ son/track.c Projet\ son/wav.c Projet\ son/waveform.c Projet\ son/tab.c Projet\ son/testmode.c -Wall -Wextra -g -o DM_son_FALAUX_BACHELOT_Erwan_2
+valgrind --leak-check=full --show-leak-kinds=all ./DM_son_FALAUX_BACHELOT_Erwan_2

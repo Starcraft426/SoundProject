@@ -1,0 +1,173 @@
+1 >> n
+-54 >> n
+1.6 >> n
+-99.87 >> n
+-9876NaN >> n
+9876int >> n
+25 >> n
+
+n >> white
+white
+white n
+white a >> sound
+white not ok
+white 1 >> sound
+white -1
+
+n >> sine
+sine
+sine n 1 1
+sine 1 2 -3
+sine a 1 thisShouldBeWrong >> track
+sine this is not ok >> sound
+sine 1 1 1 >> sound
+sine -1 -1 -1
+
+n >> sawtooth
+sawtooth
+sawtooth n 1 1
+sawtooth 1 2 -3
+sawtooth a 1 again >> track
+sawtooth always bad when here >> sound
+sawtooth 1 1 1 >> sound
+sawtooth -1 -1 -1
+
+n >> triangle
+triangle
+triangle n 1 1
+triangle 1 2 -3
+triangle a 1 BipBop >> track
+triangle never gonna give you up >> sound
+triangle 1 1 1 >> sound
+triangle -1 -1 -1
+
+n >> square
+square
+square n 1 1
+square 1 2 -3
+square a 1 duree >> track
+square OMG it's albert einstein >> sound
+square 1 1 1 >> sound
+triangle -1 -1 -1
+
+n >> write_int
+write_int
+write_int la ville d'hakoté
+write_int :) 1 >> something
+write_int test_int.txt 22987 4
+write_int test_int2.txt -7 4
+write_int test_int1.txt -1 -1
+write_int test_int1.txt -1 5
+
+read_wav ThisIsNotAWav
+n >> read_wav
+read_wav
+read_wav sound1.wav zdoj
+read_wav sound1.wav >> mix
+read_wav sound1.txt
+
+n >> load_mix
+load_mix
+load_mix zdkq
+load_mix sound1.wav
+load_mix sound1.txt >> mix
+load_mix sound1.txt dzqdih
+
+n >> save_sound
+sound >> save_sound
+save_sound qzd >> u
+save_sound test_son1.wav
+sound >> track
+save_sound test_son1.wav
+
+n >> add_sound
+sound >> add_sound
+add_sound random
+add_sound >> track
+add_sound
+sine n 1 1 >> sound
+add_sound
+
+n >> add_track
+track >> add_track
+add_track thisIsNotATrack
+add_track >> mix
+add_track
+add_track
+
+n >> reduce_track
+reduce_track qpdj
+reduce_track >> track
+sine n n n >> track
+reduce_track
+reduce_track
+
+n >> reduce_mix
+reduce_mix piuh
+reduce_mix >> sound
+reduce_mix
+reduce_mix
+
+n >> pitch_to_freq
+pitch_to_freq
+pitch_to_freq zdqioh
+pitch_to_freq 1 >> n
+pitch_to_freq 1 2 3
+
+25 >> n
+n >> sound
+n >> track
+n >> mix
+n >> n
+
+sound >> n
+sine n n n >> sound
+sound >> track
+sound >> mix
+sound >> n
+
+track >> sound
+sound >> track
+track >> mix
+mix >> track
+track >> n
+track >> track
+
+track >> mix
+mix >> sound
+sound >> track >> mix
+mix >> track
+track >> mix
+mix >> mix
+mix >> n
+mix >> mix
+
+sound >> track
+track >> mix
+track >> sound
+mix >> sound
+mix >> sound
+
+sound >> track
+track -465 >> sound
+track 0 >> sound
+track 0 >> sound
+sound >> track >> mix
+mix -324 >> sound
+mix 0 >> sound
+mix 0 >> sound
+
+FAKEFILE.EXE >> ALSOAFAKEFILE.WAV
+sound1.txt >> sound1.wav
+
+NotAFunction
+
+n >> help
+help 1
+help >> n
+help
+
+n >> exit
+exit 1
+exit >> n
+exit
