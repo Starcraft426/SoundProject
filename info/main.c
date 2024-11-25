@@ -217,5 +217,5 @@ int main(int argc, char *argv[]) {
     if (duree/60){
         printf("%dm", (duree/60)%60);
     }
-    printf("%ds\n", duree%3600);
+    printf("%ds\n", duree%60);
 }

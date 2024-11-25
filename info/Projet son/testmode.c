@@ -987,11 +987,12 @@ void test_mode(bool nowarn, bool debugmode){
                                 failed_output = true;
                                 break;
                             }
-                            warn_file(tab->args[i][0], nowarn);
-                            file = fopen(tab->args[i][0], "w");
-                            save_sound(file, tmp_track);
-                            printf("Sound saved to \"%s\"\n", tab->args[i][0]);
-                            fclose(file);
+                            if (warn_file(tab->args[i][0], nowarn)){
+                                file = fopen(tab->args[i][0], "w");
+                                save_sound(file, tmp_track);
+                                printf("Sound saved to \"%s\"\n", tab->args[i][0]);
+                                fclose(file);
+                            }
                             free_tracks(tmp_track);
                             tmp_track = NULL;
                         }
